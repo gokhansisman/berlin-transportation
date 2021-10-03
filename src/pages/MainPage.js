@@ -41,8 +41,8 @@ function MainPage() {
     <div className="main-container">
       <h1>Where do you want to go?</h1>
       <div>
-        Available transports:{" "}
-        <span style={{ fontWeight: "bold" }}>{availableVehicle}</span>
+        {availableVehicle.length!==0 ? <div style={{marginBottom:"8px"}}>Available transports:{" "}
+        <span style={{ fontWeight: "bold" }}>{availableVehicle}</span></div> : null}
         <Autocomplete
           value={fromStation}
           onChange={(event, newValue) => {
@@ -65,8 +65,6 @@ function MainPage() {
         />
       </div>
       <div className="fav-stops-container">
-        <div className="fav-stops-header">Favorite Stops</div>
-
         {favoriteStops &&
           favoriteStops.map((stop, index) => (
             <div

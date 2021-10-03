@@ -56,7 +56,7 @@ function DetailsPage() {
   }
 
   return (
-    <div className="main-container">
+    <div className="main-container-detail-page">
       <div className="main-header">
         <div className="back-button">
           <a href="/">

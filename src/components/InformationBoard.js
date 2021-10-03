@@ -1,10 +1,12 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetch_departures } from ".././store/actions/actions";
 
 import DirectionsBusFilledIcon from "@mui/icons-material/DirectionsBusFilled";
 import TrainIcon from "@mui/icons-material/Train";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import Moment from "react-moment";
+
 function Logo(props) {
   const mode = props.mode;
   if (mode === "bus") {
@@ -25,12 +27,17 @@ function InformationBoard({ information }) {
     information &&
     information.map((data, index) => (
       <div className="info-board-container" key={index}>
-        <div>{data.direction}</div>
+        <div className="line">{data.direction}</div>
         <div className="info-time">
           <AccessTimeIcon fontSize="16" />
-          {data.plannedWhen
-            .replace("T", " ")
-            .substring(0, data.plannedWhen.length - 6)}
+          
+          <div
+            title={data.plannedWhen
+              .replace("T", " ")
+              .substring(0, data.plannedWhen.length - 6)}
+          >
+            <Moment date={data.plannedWhen} fromNow />
+          </div>
         </div>
         <div
           className="info-mode"
@@ -39,7 +46,7 @@ function InformationBoard({ information }) {
             color: (data.line.color && data.line.color.fg) || "black",
           }}
         >
-          <div>{data.line.name}</div>
+          <div className="info-mode-first">{data.line.name}</div>
           <Logo mode={data.line.mode} />
         </div>
       </div>

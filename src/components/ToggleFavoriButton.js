@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useEffect } from "react";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ToggleButton from "@mui/material/ToggleButton";
 import Tooltip from "@mui/material/Tooltip";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 export default function ToggleFavoriButton({ stationName, stationID }) {
   const [selected, setSelected] = React.useState(false);
 
@@ -53,7 +54,7 @@ export default function ToggleFavoriButton({ stationName, stationID }) {
         }}
         style={{ width: 20, height: 20, border: 0, background: "none" }}
       >
-        <FavoriteBorderIcon />
+        { selected ? <StarIcon sx={{color:"#ffd700"}} /> : <StarBorderIcon /> }
       </ToggleButton>
     </Tooltip>
   );
