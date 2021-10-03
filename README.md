@@ -2,8 +2,9 @@
 The Verkehrsverbund Berlin-Brandenburg (VBB) is a transport association run by public transport providers in the German states of Berlin and Brandenburg. This project is a simple React transportation application with VBB data. 
 
 * VBB API [LINK](https://v5.vbb.transport.rest/)
+* LIVE DEMO: [VBB Berlin](https://vbb-berlin.herokuapp.com/)
 
-![ss](./images/screenshot.png)
+![ss](./src/images/screenshot.png)
 
 # Installation
 
@@ -15,6 +16,8 @@ npm install
 npm start
 ```
 
-# Live 
+# Used
 
-[VBB Berlin](https://vbb-berlin.herokuapp.com/)
+** React.js
+** Material-UI
+** Redux
