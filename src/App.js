@@ -15,7 +15,7 @@ import history from "./history"
 
 export default function App() {
   return (
-    <div>
+    <div className="main-div">
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={MainPage}/>

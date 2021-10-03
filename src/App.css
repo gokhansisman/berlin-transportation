@@ -1,17 +1,37 @@
 body {
-  background-image: url("https://www.railwaypro.com/wp/wp-content/uploads/2018/08/Berlin-UBahn_906a9ba6f647478aec89ee97a60b90cbaa8c31961548449cfc49346f09496c7a.jpg");
+  background-image: url(./images/berlin.png);
+  backdrop-filter: blur(4px);
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin: 0;
   font-family: "Roboto";
 }
-
+.main-div {
+  box-shadow: 0 2px 10px 6px rgb(0 0 0 / 20%);
+  border-radius: 8px;
+}
 .main-container {
+  font-family: "Roboto";
   display: flex;
   flex-direction: column;
-  width: 720px;
+  width: 820px;
   margin: auto;
   border-radius: 8px;
-  background: rgba(204, 213, 38, 0.5);
+  background: #ededed9c;
   align-items: center;
-  padding-bottom: 20px;
+}
+.main-header {
+  width: 100%;
+  display: flex;
+  background: #ededed;
+  border-radius: 8px 8px 0 0;
+  justify-content: space-between;
+  height: 75px;
+  place-items: center;
 }
 .body-container {
   display: flex;
@@ -22,19 +42,24 @@ body {
 .info-board-body-container {
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
   align-self: normal;
-  padding: 0 32px;
+  max-height: 420px;
+  overflow: auto;
 }
 .info-board-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
+  padding: 10px;
+}
+.info-board-container:nth-child(2n) {
+  background-color: #edededb0;
 }
 .fav-stops-container {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+  padding-bottom: 12px;
 }
 .fav-stops-header {
   display: flex;
@@ -60,7 +85,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
-  font-weight: 600;
+  font-weight: bold;
+  width: 98%;
+  padding: 10px;
 }
 .info-time {
   display: flex;
@@ -79,7 +106,14 @@ body {
   display: flex;
   place-self: flex-start;
   padding-left: 24px;
+  width: 160px;
+  margin-top: 12px;
+}
+.departures-text {
+  font-size: 18.72px;
+  font-weight: bold;
+  width: 180px;
 }
 .duration {
-    padding-left: 32px;
+  padding-left: 32px;
 }
