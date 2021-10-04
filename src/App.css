@@ -79,7 +79,7 @@ body {
   padding-top: 12px;
 }
 .fav-stops {
-  background: #b6dec1bd;
+  background: #c1c1c14f;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -135,4 +135,10 @@ body {
 }
 .line {
   justify-self: flex-start;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: none !important;
+    border-bottom: 1px solid #e0dfde!important;
+    border-radius: 0!important;
 }

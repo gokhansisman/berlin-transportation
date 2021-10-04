@@ -52,7 +52,7 @@ export default function ToggleFavoriButton({ stationName, stationID }) {
           setSelected(!selected);
           manageFavs(!selected);
         }}
-        style={{ width: 20, height: 20, border: 0, background: "none" }}
+        style={{ width: 20, height: 20, border: 0, background: "none",marginTop:"-4px" }}
       >
         { selected ? <StarIcon sx={{color:"#ffd700"}} /> : <StarBorderIcon /> }
       </ToggleButton>
