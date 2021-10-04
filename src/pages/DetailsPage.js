@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetch_departures } from ".././store/actions/actions";
-
+import { Link } from "react-router-dom";
 import Departures from "../components/Departures";
 import LoaderGif from "../loading.svg";
 
@@ -59,11 +59,11 @@ function DetailsPage() {
     <div className="main-container-detail-page">
       <div className="main-header">
         <div className="back-button">
-          <a href="/">
-            <IconButton aria-label="back">
-              <ArrowBackIcon />
-            </IconButton>
-          </a>
+            <Link to="/">
+              <IconButton aria-label="back">
+                <ArrowBackIcon />
+              </IconButton>
+            </Link>
           <div className="duration">
             <FormControl variant="standard">
               <InputLabel id="demo-simple-select-label">

@@ -43,6 +43,9 @@ body {
   height: 75px;
   place-items: center;
 }
+.main-header-text {
+  color: rebeccapurple;
+}
 .body-container {
   display: flex;
   justify-content: space-between;

@@ -39,7 +39,7 @@ function MainPage() {
 
   return (
     <div className="main-container">
-      <h1>Where do you want to go?</h1>
+      <h1 className="main-header-text">Where do you want to go?</h1>
       <div>
         {availableVehicle.length!==0 ? <div style={{marginBottom:"8px",paddingLeft:"12px"}}>Available transports:{" "}
         <span style={{ fontWeight: "bold" }}>{availableVehicle}</span></div> : null}
