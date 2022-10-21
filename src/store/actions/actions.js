@@ -17,7 +17,7 @@ export const fetch_from_stations_action = (search) => {
 
           let stopData = { name: stop.name, station: stop.station };
 
-          fetch(`${API_URL}/${stop.station}`)
+          fetch(`${API_URL}/stations/${stop.station}`)
             .then((res) => res.json())
             .then((json) => {
               localStorage.setItem(
