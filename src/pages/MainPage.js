@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { fetch_from_stations_action } from ".././store/actions/actions";
 import { useHistory } from "react-router-dom";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import StarIcon from '@mui/icons-material/Star';
 
 import ".././App.css";
 
@@ -15,7 +15,7 @@ function MainPage() {
   const searchDispatch = useDispatch();
   let history = useHistory();
   let favoriteStops = JSON.parse(localStorage.getItem("favorites"));
-
+  const searchHistory = JSON.parse(localStorage.getItem("offline"))
   useEffect(() => {
     searchDispatch(fetch_from_stations_action(from));
   }, [from, searchDispatch]);
@@ -74,9 +74,26 @@ function MainPage() {
                 navigateFromFavs(stop.stationName, stop.stationID)
               }
             >
+              <StarIcon sx={{color:"#ffd700"}} />
               {stop.stationName}
             </div>
           ))}
+      </div>
+      <div className="latest-search-container">
+        <div className="latest-search"><b>Recent Searches</b>
+        {searchHistory &&
+          searchHistory.map((stop, index) => (
+            <div
+              key={index}
+              className="latest-search-div"
+              onClick={(e) =>
+                navigateFromFavs(stop.stationName, stop.stationID)
+              }
+            >
+              {stop.stationName}
+            </div>
+          ))}
+          </div>
       </div>
     </div>
   );

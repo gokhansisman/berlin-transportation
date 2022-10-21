@@ -13,6 +13,7 @@ import DetailsPage from "./pages/DetailsPage";
 
 import history from "./history"
 
+
 export default function App() {
   return (
     <div className="main-div">
@@ -20,7 +21,6 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={MainPage}/>
           <Route path="/station" component={DetailsPage}/>
-
         </Switch>
       </Router>
 

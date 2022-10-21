@@ -19,10 +19,10 @@ function Logo(props) {
 
 function InformationBoard({ information }) {
   const detailsDispatch = useDispatch();
-
   useEffect(() => {
     detailsDispatch(fetch_departures(localStorage.curStop));
   }, [detailsDispatch]);
+
   return (
     information &&
     information.map((data, index) => (

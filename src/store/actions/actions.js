@@ -1,6 +1,7 @@
+const API_URL = 'https://v5.vbb.transport.rest'
 export const fetch_from_stations_action = (search) => {
   return (dispatch) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/stations?query=${search}`)
+    return fetch(`${API_URL}/stations?query=${search}`)
       .then((res) => res.json())
       .then((json) => {
         if (Object.keys(json).length === 0) {
@@ -16,7 +17,7 @@ export const fetch_from_stations_action = (search) => {
 
           let stopData = { name: stop.name, station: stop.station };
 
-          fetch(`${process.env.REACT_APP_API_URL}/stations/${stop.station}`)
+          fetch(`${API_URL}/${stop.station}`)
             .then((res) => res.json())
             .then((json) => {
               localStorage.setItem(
@@ -25,7 +26,13 @@ export const fetch_from_stations_action = (search) => {
               );
             })
             .catch((error) => {
-              console.log(error);
+              dispatch({
+                type: "FETCH_SUCCESS_FROM",
+                payload: {
+                  fromStops: JSON.parse(localStorage.getItem("offline")),
+                  onlineStatus: false,
+                },
+              });
             });
 
           return acc.concat(stopData);
@@ -52,7 +59,7 @@ export const fetch_from_stations_action = (search) => {
 };
 export const fetch_to_stations_action = (search) => {
   return (dispatch) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/stations?query=${search}`)
+    return fetch(`${API_URL}/stations?query=${search}`)
       .then((res) => res.json())
       .then((json) => {
         let data = Object.values(json).map((data) => ({
@@ -81,7 +88,7 @@ export const fetch_departures = (stationID, duration) => {
   }
   return (dispatch) => {
     return fetch(
-        `${process.env.REACT_APP_API_URL}/stops/${stationID}/departures?duration=${duration}`
+        `${API_URL}/stops/${stationID}/departures?duration=${duration}`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -94,10 +101,13 @@ export const fetch_departures = (stationID, duration) => {
         });
       })
       .catch((error) => {
+        const data = JSON.parse(localStorage.getItem("offline"));
+        const offlineData = data.find((stop) => stop.stationID == stationID).stops
+        
         dispatch({
           type: "FETCH_SUCCESS_DEPARTURES",
           payload: {
-            departures: JSON.parse(localStorage.getItem("offline")),
+            departures: offlineData.filter((trip) => Date.parse(trip.plannedWhen) > Date.now()),
           },
         });
       });

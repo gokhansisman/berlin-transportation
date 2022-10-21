@@ -96,6 +96,25 @@ body {
 .fav-stops:hover {
   transform: scale(1.05);
 }
+
+.latest-search-container {
+  display: grid;
+  width: 100%;
+  padding-left: 24px;
+}
+
+.latest-search {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.latest-search-div:hover {
+  transition: all 300ms;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
 .info-board-titles {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
